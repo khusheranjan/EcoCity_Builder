@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-geosearch/dist/geosearch.css';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
+import { useEffect } from 'react';
 
 const Map = () => {
+
+  
   useEffect(() => {
     const map = L.map('map').setView([17.527053, 78.536904], 13); 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
@@ -38,6 +40,7 @@ const Map = () => {
       button.innerText = 'Continue';
       button.onclick = () => {
         // Handle button click action here
+        
         console.log('Button clicked');
       };
       popupContent.appendChild(button);
