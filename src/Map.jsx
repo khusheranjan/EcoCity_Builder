@@ -30,11 +30,18 @@ const Map = () => {
       popupAnchor: [1, -34],
       shadowSize: [41, 41],
     });
+    let marker;
 
     const onMapClick = async (e) => {
       console.log(`Latitude: ${e.latlng.lat}, Longitude: ${e.latlng.lng}`);
 
-      const marker = L.marker([e.latlng.lat, e.latlng.lng], { icon: locationIcon }).addTo(map);
+      if(marker){
+        marker.remove()
+      }
+      
+       marker = L.marker([e.latlng.lat, e.latlng.lng], { icon: locationIcon }).addTo(map);
+
+
       const popupContent = document.createElement('div');
       const button = document.createElement('button');
       button.innerText = 'Continue';
