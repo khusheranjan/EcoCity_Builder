@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+  @apply flex justify-between items-center p-6;
+}
+
+.logo {
+  @apply h-8;
+}
+
+nav a {
+  @apply mx-2 text-gray-800 hover:text-gray-600 transition-colors duration-300 px-2 text-lg;
+}
+
+.hero {
+  @apply text-center py-20 bg-green-500 text-white;
+}
+
+.cta {
+  @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded;
+}
+
+.features {
+  @apply py-12 text-center bg-gray-100;
+}
+
+.feature {
+  @apply my-8 mx-auto max-w-xs;
+}
+
+.feature img {
+  @apply mx-auto h-16 mb-4;
+}
+
+.about {
+  @apply py-20 text-center bg-gray-200;
+}
+
+.about img {
+  @apply mx-auto my-8;
+}
+
+.footer {
+  @apply text-center py-4 bg-gray-800 text-white;
+}
+
+.social-links a {
+  @apply mx-2 text-gray-300 hover:text-white transition-colors duration-300;
+}
