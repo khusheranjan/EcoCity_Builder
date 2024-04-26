@@ -1,23 +1,15 @@
-import React from 'react';
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
     <div className="font-sans">
-      <header className="header">
-        <div className='flex'>
-            <img  src="https://www.pngitem.com/pimgs/m/216-2165086_transparent-planning-icon-png-urban-design-planning-icon.png" alt="EcoCity Builder" className="logo w-10 h-10" />
-            <h1 className='px-4 text-2xl pt-1 font-semibold'>EcoCity Builder</h1>
-        </div>
-        <nav className='pr-6'>
-          <a href="#features">Features</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+      
       <section className="hero">
         <h1 className="text-5xl font-bold">Welcome to EcoCity Builder</h1>
         <p className="mt-4 text-lg">Build sustainable and eco-friendly cities with our innovative platform.</p>
+        <Link to="/map">
         <button className="mt-8 cta">Get Started</button>
+        </Link>
       </section>
       <section id="features" className="features">
         <h2 className="text-3xl font-bold">Key Features</h2>

@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-geosearch/dist/geosearch.css';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
+import { useEffect } from 'react';
 
 const Map = () => {
+
+  
   useEffect(() => {
     const map = L.map('map').setView([17.527053, 78.536904], 13); 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
@@ -28,16 +30,24 @@ const Map = () => {
       popupAnchor: [1, -34],
       shadowSize: [41, 41],
     });
+    let marker;
 
     const onMapClick = async (e) => {
       console.log(`Latitude: ${e.latlng.lat}, Longitude: ${e.latlng.lng}`);
 
-      const marker = L.marker([e.latlng.lat, e.latlng.lng], { icon: locationIcon }).addTo(map);
+      if(marker){
+        marker.remove()
+      }
+      
+       marker = L.marker([e.latlng.lat, e.latlng.lng], { icon: locationIcon }).addTo(map);
+
+
       const popupContent = document.createElement('div');
       const button = document.createElement('button');
       button.innerText = 'Continue';
       button.onclick = () => {
         // Handle button click action here
+        
         console.log('Button clicked');
       };
       popupContent.appendChild(button);
