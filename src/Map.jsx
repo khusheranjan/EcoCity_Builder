@@ -3,8 +3,13 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet-geosearch/dist/geosearch.css';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import html2canvas from 'html2canvas';
+
+
 
 const Map = () => {
+    const navigateTo = useNavigate();
 
   
   useEffect(() => {
@@ -47,8 +52,17 @@ const Map = () => {
       button.innerText = 'Continue';
       button.onclick = () => {
         // Handle button click action here
-        
-        console.log('Button clicked');
+        html2canvas(map.getContainer()).then(canvas => {
+            const imageUrl = canvas.toDataURL();
+            // Open the captured image in a new tab
+            // const newTab = window.open();
+            // newTab.document.body.innerHTML = '<img src="' + imageUrl + '" />';
+          });
+
+
+        navigateTo('/canvas')
+
+        console.log('Button clicked');  
       };
       popupContent.appendChild(button);
       marker.bindPopup(popupContent).openPopup();

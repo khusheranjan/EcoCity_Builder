@@ -16,6 +16,11 @@ function Canvas() {
     { color: "green", width: 50, height: 50 },
     { color: "red", width: 50, height: 50 },
   ];
+  // const sideRectangles = [
+  //   { image: './bgs/garden.jpg', width: 50, height: 50 },
+  //   { image: './bgs/house.jpg', width: 50, height: 50 },
+  //   { image: './bgs/water.jpg', width: 50, height: 50 },
+  // ];
 
   const clearCanvas = () => {
     const canvas = canvasReference.current;
@@ -86,6 +91,8 @@ function Canvas() {
       const offsetX = e.clientX - rect.left - draggingRectangle.width / 2; // Adjust for rectangle width
       const offsetY = e.clientY - rect.top - draggingRectangle.height / 2; // Adjust for rectangle height
 
+     
+
       const context = canvas.getContext("2d");
       context.fillStyle = draggingRectangle.color;
       context.fillRect(offsetX, offsetY, draggingRectangle.width, draggingRectangle.height);
@@ -93,6 +100,29 @@ function Canvas() {
       setDraggingRectangle(null); // Reset the dragging rectangle
     }
   };
+  
+  // const handleDrop = (e) => {
+  //   if (draggingRectangle) {
+  //     const canvas = canvasReference.current;
+  //     const rect = canvas.getBoundingClientRect();
+  //     const offsetX = e.clientX - rect.left - draggingRectangle.width / 2;
+  //     const offsetY = e.clientY - rect.top - draggingRectangle.height / 2;
+  
+  //     const image = new Image();
+  //     image.src = draggingRectangle.image;
+  
+  //     image.onload = () => {
+  //       const context = canvas.getContext("2d");
+  //       context.drawImage(image, offsetX, offsetY, draggingRectangle.width, draggingRectangle.height);
+        
+  //       setDraggingRectangle(null);
+  //     };
+  
+  //     image.onerror = (error) => {
+  //       console.error('Error loading image:', error);
+  //     };
+  //   }
+  // };
 
   useEffect(() => {
     const canvas = canvasReference.current;
